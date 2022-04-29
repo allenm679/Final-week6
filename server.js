@@ -17,6 +17,19 @@ var rollbar = new Rollbar({
 // record a generic message and send it to Rollbar
 rollbar.log('Hello world!')
 
+app.use(rollbar.errorHandler())
+
+
+app.get('/err',(req,res) => {
+    try{
+        terror()
+    } catch (err) {
+      rollbar.error('invalid')
+      rollbar.critical('invalid')
+      rollbar.warning('Facebook api unavailable')
+
+
+
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, './public/index.html'))
 })
