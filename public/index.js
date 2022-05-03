@@ -162,6 +162,8 @@ const getPlayerStats = () => {
         .then(({data: {wins, losses}}) => {
             winsText.textContent = `Wins: ${wins}`
             lossesTest.textContent = `Losses: ${losses}`
+        }).catch(err => {
+            console.log(err);
         })
 }
 
